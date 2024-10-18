@@ -48,3 +48,5 @@ Code
     - [ ] A High-Score list that is persistent between sessions
     - [ ] A main menu with (at least) the alternatives “New Game”, “High score” and “Quit”
     - [ ] Use sound effect and/or music in the game
+## continue:
+    - [ ] Continue at bakcground

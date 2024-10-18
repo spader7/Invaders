@@ -33,6 +33,20 @@ class Scene
     }
     public void UpdateAll(float deltaTime)
     {
+        Loader.HandleSceneLoad(this);
+        if (grace > 0) {grace -= deltaTime; return;}
+        
+        for (int i = entities.Count -1; i >= 0; i--)
+        {
+            Entity entity = entities[i];
+            entity.Update(this, deltaTime);
+        }
+        for (int i = 0; i < entities.Count;)
+        {
+            Entity entity = entities[i];
+            if (entity.dead) entities.RemoveAt(i);
+            else i++;
+        }
 
     }
     public void RenderAll(RenderTarget target)

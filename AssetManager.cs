@@ -16,6 +16,7 @@ class AssetManager
     } 
     public Texture LoadTexture (string name)
     {
+        if (textures.TryGetValue(name, out Texture found)) return found;
         string fileName = $"Assets/{name}.png";
         Texture texture = new Texture(fileName);
         textures.Add(name, texture);
@@ -23,6 +24,7 @@ class AssetManager
     }
     public Font LoadFont (string name)
     {
+        if (fonts.TryGetValue(name, out Font found)) return found;
         string fileName = $"Assets/{name}.ttf";
         Font font = new Font(fileName);
         fonts.Add(name, font);

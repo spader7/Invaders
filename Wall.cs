@@ -1,7 +1,0 @@
-
-namespace Invaders;
-
-class Wall
-{
-    
-}

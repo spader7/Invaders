@@ -1,4 +1,5 @@
 
+using System.Runtime.CompilerServices;
 using SFML.System;
 
 namespace Invaders;
@@ -11,7 +12,7 @@ class Ship: Entity
     protected Vector2f _position;
     protected Vector2f _originalPosition;
     
-    public Ship() : base(""){}
+    protected Ship(string textureName): base(textureName) {}
     public override void Create(Scene scene)
     {
         _originalPosition = _position;
