@@ -8,31 +8,31 @@ namespace Invaders;
 
 class Program
 {
-    public const int SCREENW = 1200;
-    public const int SCREENH = 900;
+    public const int SCREENW = 1000;
+    public const int SCREENH =800;
     static void Main(string[] args)
     {
         using (var window = new RenderWindow(
-        new VideoMode(1200, 900), "Invaders"))
+        new VideoMode(1000, 800), "Invaders"))
         {
             window.Closed += (o, e) => window.Close();
             //initialize
             Clock clock = new Clock();
             Scene scene = new Scene();
-            scene.Loader.Load("world"); //is supposed to be menu.
+            scene.Loader.Load("Menu");
             while (window.IsOpen) 
-                {
-                    //dispatch events
-                    window.DispatchEvents();
-                    float deltaTime = clock.Restart().AsSeconds();
-                    deltaTime = MathF.Min(deltaTime, 0.01f);
-                    // Updates
-                    scene.UpdateAll(deltaTime);
-                    // Drawing
-                    window.Clear(Color.Black);
-                    scene.RenderAll(window);
-                    window.Display();
-                }
+            {
+                 //dispatch events
+                 window.DispatchEvents();
+                 float deltaTime = clock.Restart().AsSeconds();
+                 deltaTime = MathF.Min(deltaTime, 0.01f);
+                 // Updates
+                 scene.UpdateAll(deltaTime);
+                 // Drawing
+                 window.Clear(Color.Black);
+                 scene.RenderAll(window);
+                 window.Display();
+            }
         }
     }
 }

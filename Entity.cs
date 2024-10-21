@@ -7,7 +7,7 @@ namespace Invaders;
 class Entity
 {
     private string textureName;
-    protected Sprite sprite = new Sprite();
+    protected Sprite sprite;
     public bool dead = false;
 
     protected Entity(string textureName)

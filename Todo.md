@@ -15,7 +15,6 @@ Enemy Ship
     - [ ] If it exits the bottom of the screen, it moves back up, making it even more difficult
     - [ ] As time goes by, new enemies are spawned faster and faster, but never fast enough to become impossible 
         (There are different approaches to this, pick one that you can argue makes the game fun)
-    - [ ] As the speed goes past a certain point. Change the color of enemy ships.
 Bullets
     - [ ] Movement direction is based on the ship that fired it
     - [ ] Is destroyed when colliding with a differently allied ship

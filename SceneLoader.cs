@@ -17,39 +17,18 @@ class SceneLoader
     
     public SceneLoader()
     {
-        loaders = new Dictionary<char, Func<Entity>>
-        {
-            {'B', () => new Block() },
-            {'E', () => new EnemyShip() },
-            {'P', () => new PlayerShip() },
-        };
+        
     }
     public void HandleSceneLoad(Scene scene)
     {
         if (waitScene == "") return;
-        scene.Spawn(new Background());
         scene.Clear();
         scene.StartGrace();
+        scene.Spawn(new Background());
+        scene.Spawn(new GUI());
+        scene.Spawn(new PlayerShip());
 
-        string file = $"assets/maps/{waitScene}.txt";
-        List<string> lines = File.ReadLines(file, Encoding.UTF8).ToList();
-
-        for (int y = 0; y < lines.Count() ; y++)
-        {
-            string line = lines[y];
-            for (int x = 0; x < line.Length; x++)
-            {
-                Entity entity;
-                if (Create(line[x], out entity))
-                {
-                    Console.WriteLine(line[x]);
-                    entity.Position = new Vector2f(
-                        (Program.SCREENW * 0.5f) + ((x - line.Length/2) * 40),
-                        (Program.SCREENH * 0.5f) + ((y - lines.Count()/2) * 40));
-                    scene.Spawn(entity);
-                }
-            }
-        }
+        
         //scene.Spawn(new GUI());
         loadScene = waitScene;
         waitScene = "";
