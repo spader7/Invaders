@@ -19,9 +19,18 @@ class Program
             //initialize
             Clock clock = new Clock();
             Scene scene = new Scene();
-            scene.Loader.Load("Menu");
+            scene.Loader.LoadGame(scene);
+            window.KeyPressed += (s, e) => 
+            { 
+                if (e.Code == Keyboard.Key.Escape && scene.gameOver)
+                {
+                    scene.Loader.LoadGame(scene);
+                    scene.gameOver = false; 
+                }
+            };
             while (window.IsOpen) 
             {
+                
                  //dispatch events
                 window.DispatchEvents();
                 float deltaTime = clock.Restart().AsSeconds();

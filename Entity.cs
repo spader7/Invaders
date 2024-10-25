@@ -4,9 +4,10 @@ using SFML.System;
 
 namespace Invaders;
 
-class Entity
+public class Entity
 {
     private string textureName;
+
     protected Sprite sprite;
     public bool dead = false;
 
@@ -15,6 +16,7 @@ class Entity
         this.textureName = textureName;
         sprite = new Sprite();
     }
+    public int _direction;
     public Vector2f Position
     {
         get => sprite.Position;
@@ -32,11 +34,17 @@ class Entity
     }
     public virtual void Update(Scene scene, float deltaTime)
     {
-        foreach (Entity found in scene.FindIntersects(Bounds)) collideWith(scene, found);
+        foreach (Entity found in scene.FindIntersects
+            (new FloatRect(Bounds.Left,Bounds.Top,Bounds.Width,-Bounds.Height))) 
+            collideWith(scene, found);
     }
     protected virtual void collideWith(Scene s, Entity other)
     {
         //overrides
+    }
+    protected virtual void DifficultySclaing(Scene scene)
+    {
+        
     }
     public virtual void Render(RenderTarget target)
     {

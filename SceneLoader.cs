@@ -7,43 +7,34 @@ using SFML.System;
 
 namespace Invaders;
 
-class SceneLoader
+public class SceneLoader
 {
     private Dictionary<char, Func<Entity>> loaders;
-    private string loadScene ="";
-    private string waitScene ="";
-    private const string WORLD = "world.txt";
-    private const string MENU = "Menu.txt";
+    private bool game;
+    private bool menu;
     
-    public SceneLoader()
-    {
-        
-    }
+    public SceneLoader() { }
     public void HandleSceneLoad(Scene scene)
     {
-        if (waitScene == "") return;
+        if (!game) return;
         scene.Clear();
-        scene.StartGrace();
-        scene.Spawn(new Background());
-        scene.Spawn(new GUI());
-        scene.Spawn(new PlayerShip());
-
-        
-        //scene.Spawn(new GUI());
-        loadScene = waitScene;
-        waitScene = "";
-    }
-    private bool Create(char symbol, out Entity created)
-    {
-        if (loaders.TryGetValue(symbol, out Func<Entity> loader))
+        if (game)
         {
-            created = loader();
-            return true;
+            Game(scene);
+            return;
         }
-        created = null;
-        return false;
+        else Console.WriteLine("Error with sceneloader");
     }
-    public void Load(string scene) => waitScene = scene;
-
-    public void ReLoad() => Load(loadScene);
+    
+    public void LoadGame(Scene scene)
+    {
+        game = true;
+    }
+    public void Game(Scene scene)
+    {
+        scene.Spawn(new Background());
+        scene.Spawn(new PlayerShip());
+        scene.Spawn(new GUI());
+        game = false;
+    }
 }

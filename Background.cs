@@ -5,7 +5,7 @@ using SFML.System;
 
 namespace Invaders;
 
-class Background : Entity
+public sealed class Background : Entity
 {
     private Sprite sideSprite1;
     private Sprite sideSprite2;

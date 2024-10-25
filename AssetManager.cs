@@ -3,6 +3,7 @@ using SFML.Graphics;
 
 namespace Invaders;
 
+public 
 class AssetManager
 {
     public readonly string Assetpath = "Assets/";
