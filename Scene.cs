@@ -30,7 +30,7 @@ public sealed class Scene
         scoreTimer += deltaTime;
         if (scoreTimer >= 1) 
         {
-            Events.publishGainScore(100);
+            Events.PublishGainScore(100);
             scoreTimer = 0;
         }
     }
@@ -50,9 +50,9 @@ public sealed class Scene
         if (!FindByType<EnemyShip>(out _))
         {
             Spawn(new EnemyShip());
-            Events.publishEnemySpawnRate(0.2f);
-            Events.publishEnemyShootingRate(0.2f);
-            Events.publishGainSpeed(1);
+            Events.PublishEnemySpawnRate(0.2f);
+            Events.PublishEnemyShootingRate(0.2f);
+            Events.PublishGainSpeed(1);
         }
         else 
         {
@@ -60,9 +60,9 @@ public sealed class Scene
             {
                 Spawn(new EnemyShip());
                 spawnTimer = 0;
-                Events.publishEnemySpawnRate(0.2f);
-                Events.publishEnemyShootingRate(0.2f);
-                Events.publishGainSpeed(1);
+                Events.PublishEnemySpawnRate(0.2f);
+                Events.PublishEnemyShootingRate(0.2f);
+                Events.PublishGainSpeed(1);
             }
         }
     }

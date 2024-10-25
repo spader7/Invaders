@@ -11,12 +11,12 @@ public class Entity
     protected Sprite sprite;
     public bool dead = false;
 
+    public int _direction;
     protected Entity(string textureName)
     {
         this.textureName = textureName;
         sprite = new Sprite();
     }
-    public int _direction;
     public Vector2f Position
     {
         get => sprite.Position;
@@ -42,10 +42,7 @@ public class Entity
     {
         //overrides
     }
-    protected virtual void DifficultySclaing(Scene scene)
-    {
-        
-    }
+    
     public virtual void Render(RenderTarget target)
     {
         target.Draw(sprite);

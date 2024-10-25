@@ -87,7 +87,6 @@ public sealed class GUI : Entity
             scene.gameOver = true;
             reload = true;
             GenerateHighScore(scene);
-            currentScore = 0;
         }
     }
     private void OnGainScore(Scene scene, int amount)

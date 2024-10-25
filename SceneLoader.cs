@@ -9,9 +9,7 @@ namespace Invaders;
 
 public class SceneLoader
 {
-    private Dictionary<char, Func<Entity>> loaders;
     private bool game;
-    private bool menu;
     
     public SceneLoader() { }
     public void HandleSceneLoad(Scene scene)

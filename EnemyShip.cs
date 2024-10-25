@@ -61,7 +61,7 @@ public sealed class EnemyShip : Ship
     public override void Destroy(Scene scene)
     {
         scene.Events.enemyShootingRate -= OnEnemyShoots;
-        scene.Events.publishExplode(Position, 0.6f);
+        scene.Events.PublishExplode(Position, 0.6f);
         base.Destroy(scene);
     }
     public override void Update(Scene scene, float deltaTime)
@@ -78,7 +78,7 @@ public sealed class EnemyShip : Ship
     {
         if (other is PlayerShip)
         {
-            scene.Events.publishLoseHealth(1);
+            scene.Events.PublishLoseHealth(1);
             Destroy(scene);
         }  
     }

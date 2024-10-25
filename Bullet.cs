@@ -46,21 +46,16 @@ public sealed class Bullet: Ship
             Position.X > Program.SCREENW + 200 || Position.X < -200) Destroy(scene);
         base.travel(scene, deltaTime);
     }
-    public override void Render(RenderTarget target)
-    {
-
-        base.Render(target);
-    }
     protected override void collideWith(Scene scene, Entity other)
     {
         if (other is PlayerShip && !IsFriendly)
         {
-            scene.Events.publishLoseHealth(1);
+            scene.Events.PublishLoseHealth(1);
             Destroy(scene);
         }
         if (other is EnemyShip && IsFriendly)
             {
-                scene.Events.publishGainScore(200);
+                scene.Events.PublishGainScore(200);
                 Destroy(scene);
                 other.Destroy(scene);
             }

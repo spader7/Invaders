@@ -55,19 +55,19 @@ public class Event
             enemyShoots = 0;
         }
     }
-    public void publishGainScore(int amount)
+    public void PublishGainScore(int amount)
         => scoreGained += amount;
-    public void publishLoseHealth(int amount)
+    public void PublishLoseHealth(int amount)
         => healthLost += amount;
-    public void publishGainSpeed(int amount)
+    public void PublishGainSpeed(int amount)
         => speedGained += amount;
-    public void publishExplode(Vector2f position, float time)
+    public void PublishExplode(Vector2f position, float time)
     {
         explode += time;
         explodePos = position;
     }
-    public void publishEnemySpawnRate(float time)
+    public void PublishEnemySpawnRate(float time)
         => spawnEnemy += time;
-    public void publishEnemyShootingRate(float time)
+    public void PublishEnemyShootingRate(float time)
         => enemyShoots += time;
 }
